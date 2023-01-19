@@ -1,0 +1,14 @@
+{
+  "name": "express-challenge-beemax",
+  "version": "1.0.0",
+  "description": "API do teste técnico da Beemax",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kleiton Lima",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
