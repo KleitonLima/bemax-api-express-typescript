@@ -10,5 +10,6 @@ export interface Kiosk {
   price: number;
   quantity: number;
   date: Date;
-  hours: number[];
+  entrance: number;
+  hours: number;
 }
