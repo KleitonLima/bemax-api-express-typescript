@@ -5,6 +5,7 @@ import { knex } from "./knexfile";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { User } from "./types";
+import kioskRouter from "./routers/kiosk.routers";
 
 const app = express();
 const router = Router();
@@ -15,6 +16,8 @@ dotenv.config();
 app.use(express.json());
 app.use(router);
 app.use(cors());
+
+app.use("/kiosks", kioskRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("<h1>Hello World!</h1>");
