@@ -13,7 +13,7 @@ const KioskService = {
   },
 
   create: async (kiosk: Kiosk) => {
-    const kiosks = await knex("kioks").insert(kiosk);
+    const kiosks = await knex("kiosks").insert(kiosk);
     return kiosks;
   },
 
