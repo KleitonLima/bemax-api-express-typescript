@@ -1,24 +1,24 @@
-import { knex } from "../knexfile";
+import knex from "../db";
 import { Kiosk } from "../types";
 
 const KioskService = {
   getAll: async () => {
-    const kiosks: Kiosk[] = await knex("kiosks");
+    const kiosks = await knex("kiosks");
     return kiosks;
   },
 
   getById: async (id: string) => {
-    const kiosks: Kiosk = await knex("kiosks").where("id", id);
-    return kiosks;
+    const kiosk = await knex("kiosks").where("id", id);
+    return kiosk;
   },
 
   create: async (kiosk: Kiosk) => {
-    const kiosks: Kiosk = await knex("kioks").insert(kiosk);
+    const kiosks = await knex("kioks").insert(kiosk);
     return kiosks;
   },
 
   update: async (id: string, kiosk: Kiosk) => {
-    const kiosks: Kiosk = await knex("kiosks").where("id", id).update({
+    const kiosks = await knex("kiosks").where("id", id).update({
       name: kiosk.name,
       price: kiosk.price,
       quantity: kiosk.quantity,
@@ -29,7 +29,7 @@ const KioskService = {
   },
 
   delete: async (id: string) => {
-    const kiosk: Kiosk = await knex("kiosks").where("id", id).del();
+    const kiosk = await knex("kiosks").where("id", id).del();
     return kiosk;
   },
 };

@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import kioskService from "../services/kiosk.service";
-import { Kiosk } from "../types";
 
 interface KioskControllerProps {
   req: Request;
@@ -11,7 +10,7 @@ interface KioskControllerProps {
 const KioskController = {
   getAll: async ({ req, res, next }: KioskControllerProps) => {
     try {
-      const kiosks: Kiosk[] = await kioskService.getAll();
+      const kiosks = await kioskService.getAll();
       res.json(kiosks);
     } catch (error) {
       next(error);
@@ -20,7 +19,7 @@ const KioskController = {
 
   getById: async ({ req, res, next }: KioskControllerProps) => {
     try {
-      const kiosk: Kiosk = await kioskService.getById(req.params.id);
+      const kiosk = await kioskService.getById(req.params.id);
       res.json(kiosk);
     } catch (error) {
       next(error);
@@ -29,7 +28,7 @@ const KioskController = {
 
   create: async ({ req, res, next }: KioskControllerProps) => {
     try {
-      const kiosk: Kiosk = await kioskService.create(req.body);
+      const kiosk = await kioskService.create(req.body);
       res.json(kiosk);
     } catch (error) {
       next(error);
@@ -38,7 +37,7 @@ const KioskController = {
 
   update: async ({ req, res, next }: KioskControllerProps) => {
     try {
-      const kiosk: Kiosk = await kioskService.update(req.params.id, req.body);
+      const kiosk = await kioskService.update(req.params.id, req.body);
       res.json(kiosk);
     } catch (error) {
       next(error);
@@ -47,7 +46,7 @@ const KioskController = {
 
   delete: async ({ req, res, next }: KioskControllerProps) => {
     try {
-      const kiosk: Kiosk = await kioskService.delete(req.params.id);
+      const kiosk = await kioskService.delete(req.params.id);
       res.json(kiosk);
     } catch (error) {
       next(error);
